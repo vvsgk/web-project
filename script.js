@@ -32,7 +32,7 @@ http.onload = function(){
 		for(let item of products){
 			output += `
 				<div class="product">
-					<img src="${"pu_png/man.png"}" alt="${item.StudentName}">
+					<img src="${"man.png"}" alt="${item.StudentName}">
 					<p class="name">${item.StudentName}</p>
 					<p class="sm1">${item.PhoneStudent1}</p>
 					<p class="sm2">${item.PhoneStudent2}</p>
