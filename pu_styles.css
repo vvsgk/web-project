@@ -1,0 +1,203 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+
+	font-family: 'Montserrat', sans-serif;
+	min-height: 100vh;
+	color: black;
+	background-color: seashell;
+	overflow-x: hidden;
+}
+/* nav bar common*/
+header {
+    padding: 1.7rem 1rem;
+    backdrop-filter: blur(10px);
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    max-width: 80%;
+    margin: auto;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.logo a {
+    color: orange;
+    text-decoration: none;
+}
+
+nav a {
+    color: orange;
+    text-decoration: none;
+    font-size: .97rem;
+    font-weight: 600;
+    letter-spacing: .7px;
+    padding: 1rem;
+    padding: 0.4rem 1rem;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: orangered;
+    color: #fff;
+    border-radius: 1.2rem;
+    transition: all.5s ease-in-out;
+}
+
+#click {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+/* nav if small */
+
+@media only screen and (max-width:480px) {
+    .menu {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #113D6B;
+    }
+
+    header {
+        padding: 0.7rem 1rem;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    nav {
+        position: absolute;
+        display: grid;
+        top: 75px;
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        left: -100%;
+    }
+
+    #click:checked~nav {
+        left: 0%;
+        transition: all 0.3s ease;
+    }
+
+    section {
+        margin: 1rem 1.5rem;
+    }
+    .main {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+    section {
+        margin: 2rem 2.5rem;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    html {
+        font-size: 95%;
+    }
+    header {
+        max-width: 100%;
+    }
+    section {
+        margin: 0rem 1.5rem;
+    }
+    .images {
+        background-position: center;
+        background-size: cover;
+        
+    }
+}
+
+/* nav end */
+
+h1{
+	font-size: 5rem;
+	font-size: large;
+	text-align: center;
+	margin-top: 50px;
+	font-size: 30px;
+}
+
+.credit {
+	margin: auto;
+    font-family: serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.products{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(255px, auto));
+	grid-gap: 50px;
+	margin: auto;
+	max-width: 1240px;
+	padding: 20px;
+}
+
+.product{
+	background-color: whitesmoke;
+	text-align: center;
+	padding: 10px;
+	box-shadow: 0 5px 5px gray;
+}
+
+.product img{
+	text-align: center;
+	width: 25%;
+	display: block;
+}
+
+.product .name{
+	font-size: 25px;
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 20px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.product .sm1{
+	text-align: center;
+	font-weight: 600;
+	line-height: 22px;
+}
+
+.product .sm2{
+	text-align: center;
+	text-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.product .fm{
+	text-align: center;
+}
+
+.product .mail{
+	text-align: center;
+	padding-left: 10px;
+}
+
+.product .division{
+	text-align: center;
+}
+.product .gender{
+	text-align: center;
+}
