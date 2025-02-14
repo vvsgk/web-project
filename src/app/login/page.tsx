@@ -8,59 +8,47 @@ import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
 
 export default function LoginPage() {
-  const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const router = useRouter()
   const { toast } = useToast()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    })
+    const username = "admin" // Fixed username
 
-    if (response.ok) {
-      router.push("/pu_data")
-    } else {
-      toast({
-        title: "Error",
-        description: "Invalid credentials",
-        variant: "destructive",
-      })
-    }
+    // Redirect to API login page with username and password
+    router.push(`/api/login?username=${username}&password=${password}`)
   }
 
   return (
-    <div className="container mx-auto flex h-screen items-center justify-center">
-      <Card className="w-full max-w-md">
+    <div className="container mx-auto flex h-screen items-center justify-center bg-gray-100 p-4">
+      <Card className="w-full max-w-md p-6 shadow-lg rounded-lg bg-white">
         <CardHeader>
-          <CardTitle>Login</CardTitle>
+          <CardTitle className="text-center text-2xl font-bold text-gray-700">Login</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <label htmlFor="username">Username</label>
-              <Input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Display Fixed Username */}
+            <div className="text-lg font-semibold text-gray-600 text-center">
+              Username: <span className="text-blue-600">admin</span>
             </div>
-            <div className="space-y-2">
-              <label htmlFor="password">Password</label>
+
+            {/* Password Field */}
+            <div className="flex flex-col space-y-1">
+              <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
               <Input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
                 required
+                className="border border-gray-300 rounded-lg p-2"
               />
             </div>
-            <Button type="submit" className="w-full">
+
+            {/* Submit Button */}
+            <Button type="submit" className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
               Login
             </Button>
           </form>
@@ -69,4 +57,3 @@ export default function LoginPage() {
     </div>
   )
 }
-
